@@ -59,7 +59,7 @@ The following methods are available for DomNodes objects:
 * `.removeClass(arg)`
 
 ### `.addClass(arg)`
-Takes a single class name (string) or array of class names. Adds the specified class(es) to the list of classes for each element in the collection.
+Takes a single class name or array. Adds the specified class(es) to the list of classes for each element in the collection.
 
 ### `.append(arg)`
 Appends the input to each element in the collection. Takes another DomNodes object, an HTMLElement, or a string.
@@ -110,4 +110,4 @@ Removes all nodes in the collection from their parent nodes.
 For each node in the collection, uses .parentNode.removeChild(node) to find the node's parent and remove the node as its child.
 
 ### `.removeClass(arg)`
-Takes a single class name (string) or array of class names. Removes the specified class(es) from each element in the collection.
+Takes a single class name or array. Removes the specified class(es) from each element in the collection.
