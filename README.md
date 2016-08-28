@@ -26,7 +26,7 @@ Takes a string, function, or object as an argument.
 * If given an HTMLElement object, returns a new DomNodes collection with that HTMLElement object as the sole item in the collection.
 * If given a function, executes that function immediately if the document has loaded. Otherwise, adds the function to a queue of functions to execute when the document is ready.
 
-### `$qwizDOM(options)`
+### `$qwizDOM.ajax(options)`
 Takes an options object and makes an AJAX call using those options. Options can include:
 * `url`: URL to receive the AJAX request.
 * `type`: HTTP verb as a string. "GET" is the default.
@@ -34,23 +34,6 @@ Takes an options object and makes an AJAX call using those options. Options can 
 * `dataType`: string representing the format for data returned as a response. "json" is the default.
 * `success`: callback that will be called if the request is successful (returns a non-400/500 status code).
 * `error`: callback that will be called if the request is not successful (returns a status code in the 400s or 500s).
-
-Creates a promise to handle the results of the AJAX request.
-
-```
-let promise = new Promise(function(resolve, reject) {
-  request.open(defaults.type, defaults.url);
-  request.send(defaults.data);
-
-  if (400 <= request.status && request.status < 600) {
-    reject(request.response);
-  }
-
-  else {
-    resolve(request.response);
-  }
-});
-```
 
 ### `$qwizDOM.extend(...args)`
 Takes any number of objects as arguments, and assigns to the first object the properties of all the other objects. Calls Object.assign().
