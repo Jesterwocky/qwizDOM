@@ -37,6 +37,20 @@ Takes an options object and makes an AJAX call using those options. Options can 
 
 Creates a promise to handle the results of the AJAX request.
 
+```
+let promise = new Promise(function(resolve, reject) {
+  request.open(defaults.type, defaults.url);
+  request.send(defaults.data);
+
+  if (400 <= request.status && request.status < 600) {
+    reject(request.response);
+  }
+
+  else {
+    resolve(request.response);
+  }
+});
+```
 
 ### `$qwizDOM.extend(...args)`
 Takes any number of objects as arguments, and assigns to the first object the properties of all the other objects. Calls Object.assign().
