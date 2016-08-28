@@ -4,17 +4,17 @@ qwizDOM is a lightweight DOM manipulation library that functions much like JQuer
 
 ## Sandbox
 This repo includes a sample HTML file to use as a sandbox. To try qwizDOM:
-0. Download the repo.
-0. Run webpack with main.js as the entry point and qwizDOM.js as the output.
-0. Open sandbox.html in Chrome.
+1. Download the repo.
+1. Run webpack with main.js as the entry point and qwizDOM.js as the output.
+1. Open sandbox.html in Chrome.
 
 You can then use qwizDOM in the Developer Tools console.
 
 ## `$qwizDOM(arg)`
 Takes a string, function, or object as an argument.
-* If given a CSS selector (string), returns a new DomNodes collection of HTML elements that match the specified selector.
-* If given an HTMLElement object, returns a new DomNodes collection with that HTMLElement object as the sole item in the collection.
-* If given a function, executes that function immediately if the document has loaded. Otherwise, adds the function to a queue of functions to execute when the document is ready.
+* Given a CSS selector (string), returns a new DomNodes collection of HTML elements that match the specified selector.
+* Given an HTMLElement object, returns a new DomNodes collection with that HTMLElement object as the sole item in the collection.
+* Given a function, executes that function immediately if the document has loaded. Otherwise, adds the function to a queue of functions to execute when the document is ready.
 
 ```
 window.$qwizDOM = function(arg) {
@@ -153,9 +153,9 @@ DomNodes.prototype.append = function (arg) {
 ```
 
 ### `.attr(attributeName, value)`
-If given only a attribute name, returns the value of that attribute for the first element in the collection.
+Given only a attribute name, returns the value of that attribute for the first element in the collection.
 
-If given both a attribute name and a value, sets the attribute to that value for the first element in the collection.
+Given both a attribute name and a value, sets the attribute to that value for the first element in the collection.
 
 ```
 DomNodes.prototype.attr = function(key, value){
@@ -218,9 +218,9 @@ DomNodes.prototype.find = function(selector){
 ```
 
 ### `.html(string)`
-If given no argument, returns the innerHTML of the first element in the collection.
+Given no argument, returns the innerHTML of the first element in the collection.
 
-If given an argument (a string), assigns that string as the innerHTML of all elements in the collection.
+Given an argument (a string), assigns that string as the innerHTML of all elements in the collection.
 
 ```
 DomNodes.prototype.html = function (str) {
