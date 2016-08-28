@@ -9,7 +9,7 @@ aside {
   border: 1px solid black;
   margin-right: 15px;
   margin-bottom: 15px;
-  height: 100px;
+  height: 200px;
 }
 
 aside small {
@@ -23,6 +23,14 @@ aside small {
 
 .stop {
   color: red;
+}
+
+.up {
+  font-size: 40px;
+}
+
+.down {
+  font-size: 10px;
 }
 
 .group:after {

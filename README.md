@@ -2,11 +2,20 @@
 
 qwizDOM is a lightweight DOM manipulation library that functions much like JQuery.
 
+## To Use
+
+To use qwizDOM in a project:
+
+0. Download this repo.
+0. Add dom_nodes.js and qwizdom_main.js to your project directory.
+0. Bundle dom_nodes.js and qwizdom_main.js (using, e.g., webpack).
+0. Add a `script` tag to your HTML file with `src=` [relative path to the bundled file].
+
 ## Sandbox
 This repo includes a sample HTML file to use as a sandbox. To try qwizDOM:
 
 0. Download the repo.
-0. Run webpack with main.js as the entry point and qwizDOM.js as the output.
+0. Bundle dom_nodes.js and qwizdom_main.js (using, e.g., webpack) to create a file named qwizDOM.js in the lib folder.
 0. Open sandbox.html in Chrome.
 
 You can then use qwizDOM in the Developer Tools console.
@@ -36,21 +45,21 @@ Takes any number of objects as arguments, and assigns to the first object the pr
 The DomNodes class constructor takes an array of HTML elements and packages them as a property of a new DomNodes object.
 
 The following methods are available for DomNodes objects:
-* `.addClass(string)`
+* `.addClass(arg)`
 * `.append(arg)`
 * `.attr(attributeName, value)`
-* `.children()`
+* `.children(selector)`
 * `.empty()`
 * `.find(selector)`
 * `.html(string)`
 * `.off(actionName, callback)`
 * `.on(actionName, callback)`
-* `.parent()`
+* `.parent(selector)`
 * `.remove()`
-* `.removeClass(className)`
+* `.removeClass(arg)`
 
-### `.addClass(string)`
-Adds the specified class name to the list of classes for each HTML element in the collection.
+### `.addClass(arg)`
+Takes a single class name (string) or array of class names. Adds the specified class(es) to the list of classes for each element in the collection.
 
 ### `.append(arg)`
 Appends the input to each element in the collection. Takes another DomNodes object, an HTMLElement, or a string.
@@ -64,8 +73,8 @@ If given only a attribute name, returns the value of that attribute for the firs
 
 If given both a attribute name and a value, sets the attribute to that value for the first element in the collection.
 
-### `.children()`
-Returns a DomNodes object containing the children of all HTML elements in the collection.
+### `.children(selector)`
+Returns a DomNodes object containing the children of all HTML elements in the collection. If a CSS selector is specified, the resulting DomNodes collection contains only children that match the selector.
 
 ### `.empty()`
 Empties the DomNodes object of HTML elements. Calls .html() with an empty string.
@@ -90,8 +99,8 @@ For each node in the collection, adds an event listener that listens for the spe
 
 Calls .addEventListener() on each node, passing the action name and the callback as arguments.
 
-### `.parent()`
-Returns a DomNodes object containing the parents of all HTML elements in the collection.
+### `.parent(selector)`
+Returns a DomNodes object containing the parents of all HTML elements in the collection. If a CSS selector is specified, the resulting DomNodes collection contains only parents that match the selector.
 
 The resulting DomNodes object contains no duplicates. If all nodes have the same parent, then the resulting DomNodes collection contains a single node.
 
@@ -100,7 +109,5 @@ Removes all nodes in the collection from their parent nodes.
 
 For each node in the collection, uses .parentNode.removeChild(node) to find the node's parent and remove the node as its child.
 
-### `.removeClass(string)`
-Removes the specified class from each element in the collection.
-
-Calls .classList.remove() on each element, passing the specified class name as an argument.
+### `.removeClass(arg)`
+Takes a single class name (string) or array of class names. Removes the specified class(es) from each element in the collection.
