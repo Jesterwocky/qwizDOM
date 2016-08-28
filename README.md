@@ -4,6 +4,7 @@ qwizDOM is a lightweight DOM manipulation library that functions much like JQuer
 
 ## Sandbox
 This repo includes a sample HTML file to use as a sandbox. To try qwizDOM:
+
 0. Download the repo.
 0. Run webpack with main.js as the entry point and qwizDOM.js as the output.
 0. Open sandbox.html in Chrome.
