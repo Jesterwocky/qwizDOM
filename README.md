@@ -18,7 +18,7 @@ This repo includes a sample HTML file to use as a sandbox. To try qwizDOM:
 0. Bundle dom_nodes.js and qwizdom_main.js (using, e.g., webpack) to create a file named qwizDOM.js in the lib folder.
 0. Open sandbox.html in Chrome.
 
-You can then use qwizDOM in the Developer Tools console.
+You can then use qwizDOM in the Chrome console.
 
 ## `$qwizDOM(arg)`
 Takes a string, function, or object as an argument.
@@ -116,7 +116,7 @@ Calls .addEventListener() on each node, passing the action name and the callback
 ### `.parent(selector)`
 Returns a DomNodes object containing the parents of all HTML elements in the collection. If a CSS selector is specified, the resulting DomNodes collection contains only parents that match the selector.
 
-The resulting DomNodes object contains no duplicates. If all nodes have the same parent, then the resulting DomNodes collection contains a single node.
+The resulting DomNodes object contains no duplicates. If all nodes have the same parent, then the collection contains a single node.
 
 ### `.remove()`
 Removes all nodes in the collection from their parent nodes.
