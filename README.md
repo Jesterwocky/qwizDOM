@@ -35,6 +35,30 @@ Takes an options object and makes an AJAX call using those options. Options can 
 * `success`: callback that will be called if the request is successful (returns a non-400/500 status code).
 * `error`: callback that will be called if the request is not successful (returns a status code in the 400s or 500s).
 
+Creates a promise to handle the results of the AJAX request:
+
+```
+const request = new XMLHttpRequest();
+
+let promise = new Promise(function(resolve, reject) {
+  request.open(defaults.type, defaults.url);
+  request.send(defaults.data);
+
+  if (400 <= request.status && request.status < 600) {
+    reject(request.response);
+  }
+
+  else {
+    resolve(request.response);
+  }
+});
+
+promise.then(
+  function(result) {defaults.success(results);},
+  function(errors) {defaults.error(errors);}
+);
+```
+
 ### `$qwizDOM.extend(...args)`
 Takes any number of objects as arguments, and assigns to the first object the properties of all the other objects. Calls Object.assign().
 
